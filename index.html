@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Before You Cancel - Stop Subscription Cancellations Before They Happen</title>
   <meta name="description" content="Before You Cancel is a Shopify app that helps subscription brands reduce churn by offering customers a smarter option: delay instead of cancel.">
-  <meta name="keywords" content="Shopify app, subscription churn, cancel prevention, subscription management, Shopify subscriptions, reduce churn">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Before You Cancel - Stop Subscription Cancellations">
@@ -14,23 +13,435 @@
   <meta property="og:url" content="https://beforeyoucancelme.com">
   <meta property="og:image" content="https://beforeyoucancelme.com/images/vid-thumbnail.png">
 
-  <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="favicon.ico">
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    /* Main Layout */
+    .app-page {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      gap: 48px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-inner {
+      position: sticky;
+      top: 24px;
+    }
+
+    .app-info {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .app-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      border: 1px solid #e1e1e1;
+    }
+
+    .app-name {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .built-for-shopify {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #5c6ac4;
+      font-weight: 500;
+    }
+
+    .built-for-shopify svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: #e1e1e1;
+      margin: 16px 0;
+    }
+
+    .sidebar-row {
+      margin-bottom: 16px;
+    }
+
+    .sidebar-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+    }
+
+    .sidebar-value {
+      font-size: 14px;
+      color: #616161;
+    }
+
+    .install-btn {
+      display: block;
+      width: 100%;
+      padding: 12px 24px;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin-top: 24px;
+      transition: background 0.15s;
+    }
+
+    .install-btn:hover {
+      background: #333;
+    }
+
+    /* Main Content */
+    .main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Media Section */
+    .media-section {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .video-wrapper {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 180px;
+      flex-shrink: 0;
+    }
+
+    .thumb {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      background: #f6f6f7;
+      border: 1px solid #e1e1e1;
+      transition: border-color 0.15s;
+    }
+
+    .thumb:hover {
+      border-color: #1a1a1a;
+    }
+
+    .thumb-inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+    }
+
+    .thumb-text {
+      font-size: 11px;
+      color: #616161;
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .thumb-img {
+      width: 60px;
+      height: 45px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .thumb.has-more .thumb-inner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .more-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a1a;
+      z-index: 1;
+    }
+
+    /* Content Sections */
+    .content-section {
+      margin-bottom: 24px;
+    }
+
+    .content-section h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+
+    .content-section p {
+      font-size: 14px;
+      color: #616161;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .content-section ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .content-section li {
+      font-size: 14px;
+      color: #616161;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .content-divider {
+      height: 1px;
+      background: #e1e1e1;
+      margin: 24px 0;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 8px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-nav:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 32px 24px;
+      margin-top: 48px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-size: 14px;
+    }
+
+    .footer-brand strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .footer-brand span {
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .app-page {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .sidebar-inner {
+        position: static;
+      }
+
+      .media-section {
+        flex-direction: column;
+      }
+
+      .thumbnails {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+      }
+
+      .thumb {
+        width: 160px;
+        flex-shrink: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .app-page {
+        padding: 16px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="page-layout">
-    <!-- Left Sidebar -->
+  <div class="app-page">
+    <!-- Sidebar -->
     <aside class="sidebar">
-      <div class="sidebar-content">
-        <!-- App Header -->
-        <div class="app-header">
+      <div class="sidebar-inner">
+        <div class="app-info">
           <img src="images/app_icon.png" alt="Before You Cancel" class="app-icon">
-          <div class="app-title">
-            <h1>Before You Cancel</h1>
+          <div>
+            <div class="app-name">Before You Cancel</div>
             <span class="built-for-shopify">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="#5C6AC4">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="#5c6ac4"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
               Built for Shopify
             </span>
           </div>
@@ -38,74 +449,77 @@
 
         <div class="sidebar-divider"></div>
 
-        <!-- Pricing -->
-        <div class="sidebar-section">
-          <h3>Pricing</h3>
-          <p class="pricing-value">From $49/month</p>
-          <p class="pricing-note">14-day free trial</p>
+        <div class="sidebar-row">
+          <div class="sidebar-label">Pricing</div>
+          <div class="sidebar-value">From $49/month</div>
+        </div>
+
+        <div class="sidebar-row">
+          <div class="sidebar-label">Free trial</div>
+          <div class="sidebar-value">14 days</div>
         </div>
 
         <div class="sidebar-divider"></div>
 
-        <!-- Info -->
-        <div class="sidebar-section">
-          <h3>For</h3>
-          <p>Subscription brands on Shopify</p>
+        <div class="sidebar-row">
+          <div class="sidebar-label">Built for</div>
+          <div class="sidebar-value">Subscription brands</div>
         </div>
 
         <div class="sidebar-divider"></div>
 
-        <!-- Developer -->
-        <div class="sidebar-section">
-          <h3>Developer</h3>
-          <p>Before You Cancel</p>
+        <div class="sidebar-row">
+          <div class="sidebar-label">Developer</div>
+          <div class="sidebar-value">Before You Cancel</div>
         </div>
 
-        <!-- Install Button -->
-        <a href="https://apps.shopify.com/before-you-cancel" class="btn btn-install">
-          Install
-        </a>
+        <a href="https://apps.shopify.com/before-you-cancel" class="install-btn">Install</a>
       </div>
     </aside>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main">
       <!-- Media Section -->
       <div class="media-section">
-        <div class="video-container">
-          <iframe
-            src="https://www.youtube.com/embed/73V_kstgXKw"
-            title="Before You Cancel Demo"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
+        <div class="video-wrapper">
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/73V_kstgXKw"
+              title="Before You Cancel Demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
         <div class="thumbnails">
-          <div class="thumbnail" data-index="0">
-            <img src="images/analysis.png" alt="Product churn analysis">
+          <div class="thumb" onclick="openLightbox(0)">
+            <div class="thumb-inner">
+              <span class="thumb-text">Product-level churn analysis</span>
+              <img src="images/analysis.png" alt="Analysis" class="thumb-img">
+            </div>
           </div>
-          <div class="thumbnail" data-index="1">
-            <img src="images/email_setup.png" alt="Email setup">
+          <div class="thumb" onclick="openLightbox(1)">
+            <div class="thumb-inner">
+              <span class="thumb-text">Email setup and customization</span>
+              <img src="images/email_setup.png" alt="Email Setup" class="thumb-img">
+            </div>
           </div>
-          <div class="thumbnail has-more" data-index="2">
-            <img src="images/recent_performance.png" alt="Performance metrics">
-            <span class="more-count">+3 more</span>
+          <div class="thumb has-more" onclick="openLightbox(2)">
+            <div class="thumb-inner">
+              <span class="thumb-text">Performance metrics</span>
+              <img src="images/recent_performance.png" alt="Performance" class="thumb-img">
+            </div>
+            <span class="more-label">+3 more</span>
           </div>
         </div>
       </div>
 
-      <!-- Description Section -->
+      <!-- Content -->
       <div class="content-section">
         <h2>Stop subscription cancellations before they happen</h2>
-        <p class="lead">
-          Before You Cancel helps subscription brands reduce churn by offering customers a smarter option at the moment they try to cancel: <strong>delay instead of cancel.</strong>
-        </p>
-        <p>
-          Fewer cancellations. Fewer support tickets. More retained revenue — without discounts.
-        </p>
-
-        <ul class="feature-list">
+        <p>Before You Cancel helps subscription brands reduce churn by offering customers a smarter option at the moment they try to cancel: <strong>delay instead of cancel.</strong></p>
+        <p>Fewer cancellations. Fewer support tickets. More retained revenue — without discounts.</p>
+        <ul>
           <li>Adds a "Delay delivery" option to your cancellation flow</li>
           <li>Customers delay their next shipment instead of cancelling</li>
           <li>No coupons, no negotiations, no support tickets</li>
@@ -116,70 +530,55 @@
 
       <div class="content-divider"></div>
 
-      <!-- Why Section -->
       <div class="content-section">
         <h2>Why subscriptions get cancelled</h2>
         <p>Most customers don't cancel because they're done forever. They cancel because:</p>
-        <ul class="reason-list">
+        <ul>
           <li>They have too much product right now</li>
           <li>They want to pause spending temporarily</li>
           <li>They forgot they were subscribed</li>
           <li>They don't want to talk to support</li>
         </ul>
-        <p>
-          When the only option is <em>Cancel</em>, that's what they choose — even when delay would have solved the problem.
-        </p>
+        <p>When the only option is <em>Cancel</em>, that's what they choose — even when delay would have solved the problem.</p>
       </div>
 
       <div class="content-divider"></div>
 
-      <!-- What Merchants See -->
       <div class="content-section">
         <h2>What merchants see</h2>
-        <ul class="feature-list">
+        <ul>
           <li>Clear visibility into how many cancellations were avoided</li>
           <li>Simple performance metrics (emails sent, clicks, saves)</li>
           <li>Predictable pricing based on your current scale</li>
         </ul>
-        <p class="note">
-          You'll always know where you stand — and you'll be notified before any plan change.
-        </p>
+        <p>You'll always know where you stand — and you'll be notified before any plan change.</p>
       </div>
 
       <div class="content-divider"></div>
 
-      <!-- Pricing Section -->
       <div class="content-section">
-        <h2>Pricing that grows with your success</h2>
-        <p>
-          Starts at <strong>$49/month</strong> after a free 14-day trial. Your plan includes a set number of active subscriptions, so you only upgrade when your business grows.
-        </p>
-        <p class="promise">
-          <strong>No surprise charges. No silent upgrades.</strong>
-        </p>
+        <h2>Pricing</h2>
+        <p>Starts at <strong>$49/month</strong> after a free 14-day trial. Your plan includes a set number of active subscriptions, so you only upgrade when your business grows.</p>
+        <p><strong>No surprise charges. No silent upgrades.</strong></p>
       </div>
     </main>
   </div>
 
-  <!-- Lightbox Modal -->
+  <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" aria-label="Close">&times;</button>
-    <button class="lightbox-prev" aria-label="Previous">&lsaquo;</button>
-    <button class="lightbox-next" aria-label="Next">&rsaquo;</button>
-    <div class="lightbox-content">
-      <img src="" alt="" id="lightbox-img">
-    </div>
-    <div class="lightbox-counter">
-      <span id="lightbox-current">1</span> / <span id="lightbox-total">6</span>
-    </div>
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="prevImage()">&lsaquo;</button>
+    <button class="lightbox-nav lightbox-next" onclick="nextImage()">&rsaquo;</button>
+    <img src="" alt="" id="lightbox-img">
+    <div class="lightbox-counter"><span id="current">1</span> / <span id="total">6</span></div>
   </div>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
+    <div class="footer-inner">
       <div class="footer-brand">
-        <div class="logo">Before You Cancel</div>
-        <p>Reduce subscription churn by giving customers a better option than cancelling.</p>
+        <strong>Before You Cancel</strong>
+        <span>Reduce subscription churn by giving customers a better option than cancelling.</span>
       </div>
       <div class="footer-links">
         <a href="https://app.beforeyoucancelme.com/privacy">Privacy Policy</a>
@@ -189,77 +588,57 @@
   </footer>
 
   <script>
-    // Image gallery data
     const images = [
       { src: 'images/analysis.png', alt: 'Product churn analysis' },
-      { src: 'images/email_setup.png', alt: 'Email setup and customization' },
+      { src: 'images/email_setup.png', alt: 'Email setup' },
       { src: 'images/recent_performance.png', alt: 'Performance metrics' },
-      { src: 'images/mobile_analysis.png', alt: 'Mobile analysis view' },
+      { src: 'images/mobile_analysis.png', alt: 'Mobile analysis' },
       { src: 'images/mobile_email_steup.png', alt: 'Mobile email setup' },
-      { src: 'images/mobile_performance.png', alt: 'Mobile performance view' }
+      { src: 'images/mobile_performance.png', alt: 'Mobile performance' }
     ];
-
     let currentIndex = 0;
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCurrent = document.getElementById('lightbox-current');
-    const lightboxTotal = document.getElementById('lightbox-total');
 
-    lightboxTotal.textContent = images.length;
-
-    // Open lightbox
-    document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
-      thumb.addEventListener('click', () => {
-        currentIndex = index;
-        showImage();
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    // Close lightbox
-    document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
+    function openLightbox(index) {
+      currentIndex = index;
+      showImage();
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
 
     function closeLightbox() {
       lightbox.classList.remove('active');
       document.body.style.overflow = '';
     }
 
-    // Navigation
-    document.querySelector('.lightbox-prev').addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      showImage();
-    });
-
-    document.querySelector('.lightbox-next').addEventListener('click', (e) => {
-      e.stopPropagation();
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage();
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        showImage();
-      }
-      if (e.key === 'ArrowRight') {
-        currentIndex = (currentIndex + 1) % images.length;
-        showImage();
-      }
-    });
-
     function showImage() {
       lightboxImg.src = images[currentIndex].src;
       lightboxImg.alt = images[currentIndex].alt;
-      lightboxCurrent.textContent = currentIndex + 1;
+      document.getElementById('current').textContent = currentIndex + 1;
+      document.getElementById('total').textContent = images.length;
     }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage();
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage();
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    });
   </script>
 </body>
 </html>
