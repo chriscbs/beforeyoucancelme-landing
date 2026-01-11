@@ -18,31 +18,61 @@
   <link rel="icon" href="favicon.ico">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <div class="logo">Before You Cancel</div>
-      <a href="https://apps.shopify.com/before-you-cancel" class="btn btn-primary">Install on Shopify</a>
-    </div>
-  </header>
+  <div class="page-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <!-- App Header -->
+        <div class="app-header">
+          <img src="images/app_icon.png" alt="Before You Cancel" class="app-icon">
+          <div class="app-title">
+            <h1>Before You Cancel</h1>
+            <span class="built-for-shopify">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#5C6AC4">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              Built for Shopify
+            </span>
+          </div>
+        </div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Stop subscription cancellations before they happen</h1>
-        <p class="hero-subtitle">
-          Before You Cancel helps subscription brands reduce churn by offering customers a smarter option at the moment they try to cancel: <strong>delay instead of cancel.</strong>
-        </p>
-        <p class="hero-benefits">
-          Fewer cancellations. Fewer support tickets. More retained revenue.
-        </p>
-        <a href="https://apps.shopify.com/before-you-cancel" class="btn btn-primary btn-large">
-          Install on Shopify — Free 14-day trial
+        <div class="sidebar-divider"></div>
+
+        <!-- Pricing -->
+        <div class="sidebar-section">
+          <h3>Pricing</h3>
+          <p class="pricing-value">From $49/month</p>
+          <p class="pricing-note">14-day free trial</p>
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+        <!-- Info -->
+        <div class="sidebar-section">
+          <h3>For</h3>
+          <p>Subscription brands on Shopify</p>
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+        <!-- Developer -->
+        <div class="sidebar-section">
+          <h3>Developer</h3>
+          <p>Before You Cancel</p>
+        </div>
+
+        <!-- Install Button -->
+        <a href="https://apps.shopify.com/before-you-cancel" class="btn btn-install">
+          Install
         </a>
       </div>
-      <div class="hero-media">
-        <div class="hero-video">
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Media Section -->
+      <div class="media-section">
+        <div class="video-container">
           <iframe
             src="https://www.youtube.com/embed/73V_kstgXKw"
             title="Before You Cancel Demo"
@@ -51,174 +81,98 @@
             allowfullscreen>
           </iframe>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section class="gallery-section">
-    <div class="container">
-      <h2>See it in action</h2>
-      <div class="gallery">
-        <div class="gallery-item">
-          <img src="images/analysis.png" alt="Product churn analysis dashboard">
-          <div class="gallery-item-caption">
-            <p>Product-level churn analysis</p>
+        <div class="thumbnails">
+          <div class="thumbnail" data-index="0">
+            <img src="images/analysis.png" alt="Product churn analysis">
           </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/email_setup.png" alt="Email setup and customization">
-          <div class="gallery-item-caption">
-            <p>Email setup and customization</p>
+          <div class="thumbnail" data-index="1">
+            <img src="images/email_setup.png" alt="Email setup">
           </div>
-        </div>
-        <div class="gallery-item">
-          <img src="images/recent_performance.png" alt="Performance metrics dashboard">
-          <div class="gallery-item-caption">
-            <p>Track saved cancellations</p>
+          <div class="thumbnail has-more" data-index="2">
+            <img src="images/recent_performance.png" alt="Performance metrics">
+            <span class="more-count">+3 more</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Problem & Solution Section -->
-  <section class="problem-solution-section">
-    <div class="container">
-      <div class="two-column">
-        <div class="content-block">
-          <h2>Why subscriptions get cancelled</h2>
-          <p class="section-intro">Most customers don't cancel because they're done forever. They cancel because:</p>
-          <ul class="reason-list">
-            <li>They have too much product right now</li>
-            <li>They want to pause spending temporarily</li>
-            <li>They forgot they were subscribed</li>
-            <li>They don't want to talk to support</li>
-          </ul>
-          <p class="section-conclusion">
-            When the only option is <em>Cancel</em>, that's what they choose — even when delay would have solved the problem.
-          </p>
-        </div>
-        <div class="content-block">
-          <h2>What Before You Cancel does</h2>
-          <p class="section-intro">
-            Adds a <strong>Delay delivery</strong> option directly into your existing cancellation flow.
-          </p>
-          <ul class="benefit-list">
-            <li>Delay the next shipment</li>
-            <li>Keep their subscription active</li>
-            <li>No coupons, no negotiations, no tickets</li>
-          </ul>
-          <div class="outcome-box">
-            <p><strong>You keep the customer.</strong><br>They avoid an unwanted cancellation.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <!-- Description Section -->
+      <div class="content-section">
+        <h2>Stop subscription cancellations before they happen</h2>
+        <p class="lead">
+          Before You Cancel helps subscription brands reduce churn by offering customers a smarter option at the moment they try to cancel: <strong>delay instead of cancel.</strong>
+        </p>
+        <p>
+          Fewer cancellations. Fewer support tickets. More retained revenue — without discounts.
+        </p>
 
-  <!-- Mobile Gallery -->
-  <section class="mobile-section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Works beautifully on mobile</h2>
+        <ul class="feature-list">
+          <li>Adds a "Delay delivery" option to your cancellation flow</li>
+          <li>Customers delay their next shipment instead of cancelling</li>
+          <li>No coupons, no negotiations, no support tickets</li>
+          <li>Works with your existing subscription setup</li>
+          <li>Installs in minutes with no impact on checkout</li>
+        </ul>
       </div>
-      <div class="mobile-gallery">
-        <div class="mobile-item">
-          <img src="images/mobile_analysis.png" alt="Mobile view of analysis">
-        </div>
-        <div class="mobile-item">
-          <img src="images/mobile_email_steup.png" alt="Mobile view of email setup">
-        </div>
-        <div class="mobile-item">
-          <img src="images/mobile_performance.png" alt="Mobile view of performance">
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Job to be Done -->
-  <section class="jtbd-section">
-    <div class="container">
-      <blockquote class="jtbd-quote">
-        "I want to reduce churn without hurting the customer experience."
-      </blockquote>
-      <div class="section-header">
-        <p>Before You Cancel helps you save customers who were going to cancel anyway, reduce reactive support conversations, and retain revenue without offering discounts.</p>
-      </div>
-      <ul class="benefit-list" style="max-width: 600px; margin: 0 auto;">
-        <li>Save customers who were going to cancel anyway</li>
-        <li>Reduce reactive support conversations</li>
-        <li>Retain revenue without offering discounts</li>
-        <li>Let customers self-serve instead of contacting support</li>
-      </ul>
-      <p class="section-conclusion" style="text-align: center; max-width: 600px; margin: var(--spacing-md) auto 0;">
-        This is churn prevention that works <em>with</em> customer intent, not against it.
-      </p>
-    </div>
-  </section>
+      <div class="content-divider"></div>
 
-  <!-- Built for Shopify & Merchants -->
-  <section class="features-section">
-    <div class="container">
-      <div class="two-column">
-        <div class="content-block">
-          <h2>Built for Shopify subscription brands</h2>
-          <p class="section-intro">
-            A native Shopify app designed specifically for stores running subscriptions.
-          </p>
-          <ul class="feature-list">
-            <li>Installs in minutes</li>
-            <li>Works with your existing subscription setup</li>
-            <li>No impact on checkout</li>
-            <li>No changes to fulfillment logic</li>
-          </ul>
-          <p class="section-note">You control when and how the delay option appears.</p>
-        </div>
-        <div class="content-block">
-          <h2>What merchants see</h2>
-          <ul class="feature-list">
-            <li>Clear visibility into how many cancellations were avoided</li>
-            <li>Simple performance metrics (emails sent, clicks, saves)</li>
-            <li>Predictable pricing based on your current scale</li>
-          </ul>
-          <p class="section-note">
-            You'll always know where you stand — and you'll be notified before any plan change.
-          </p>
-        </div>
+      <!-- Why Section -->
+      <div class="content-section">
+        <h2>Why subscriptions get cancelled</h2>
+        <p>Most customers don't cancel because they're done forever. They cancel because:</p>
+        <ul class="reason-list">
+          <li>They have too much product right now</li>
+          <li>They want to pause spending temporarily</li>
+          <li>They forgot they were subscribed</li>
+          <li>They don't want to talk to support</li>
+        </ul>
+        <p>
+          When the only option is <em>Cancel</em>, that's what they choose — even when delay would have solved the problem.
+        </p>
       </div>
-    </div>
-  </section>
 
-  <!-- Pricing -->
-  <section class="pricing-section">
-    <div class="container">
-      <div class="section-header">
+      <div class="content-divider"></div>
+
+      <!-- What Merchants See -->
+      <div class="content-section">
+        <h2>What merchants see</h2>
+        <ul class="feature-list">
+          <li>Clear visibility into how many cancellations were avoided</li>
+          <li>Simple performance metrics (emails sent, clicks, saves)</li>
+          <li>Predictable pricing based on your current scale</li>
+        </ul>
+        <p class="note">
+          You'll always know where you stand — and you'll be notified before any plan change.
+        </p>
+      </div>
+
+      <div class="content-divider"></div>
+
+      <!-- Pricing Section -->
+      <div class="content-section">
         <h2>Pricing that grows with your success</h2>
+        <p>
+          Starts at <strong>$49/month</strong> after a free 14-day trial. Your plan includes a set number of active subscriptions, so you only upgrade when your business grows.
+        </p>
+        <p class="promise">
+          <strong>No surprise charges. No silent upgrades.</strong>
+        </p>
       </div>
-      <p class="pricing-highlight">$49<span>/month</span></p>
-      <p class="pricing-detail">
-        After a free 14-day trial. Your plan includes a set number of active subscriptions, so you only upgrade when your business grows.
-      </p>
-      <p class="pricing-promise">
-        <strong>No surprise charges.</strong><br>
-        <strong>No silent upgrades.</strong>
-      </p>
-    </div>
-  </section>
+    </main>
+  </div>
 
-  <!-- Final CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Get started in under 5 minutes</h2>
-      <p class="section-intro">
-        Install Before You Cancel from the Shopify App Store and start saving cancellations today.
-      </p>
-      <a href="https://apps.shopify.com/before-you-cancel" class="btn btn-primary btn-large">
-        Install on Shopify — Free 14-day trial
-      </a>
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous">&lsaquo;</button>
+    <button class="lightbox-next" aria-label="Next">&rsaquo;</button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightbox-img">
     </div>
-  </section>
+    <div class="lightbox-counter">
+      <span id="lightbox-current">1</span> / <span id="lightbox-total">6</span>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -226,7 +180,6 @@
       <div class="footer-brand">
         <div class="logo">Before You Cancel</div>
         <p>Reduce subscription churn by giving customers a better option than cancelling.</p>
-        <p class="built-for">Built for Shopify.</p>
       </div>
       <div class="footer-links">
         <a href="https://app.beforeyoucancelme.com/privacy">Privacy Policy</a>
@@ -234,5 +187,79 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Image gallery data
+    const images = [
+      { src: 'images/analysis.png', alt: 'Product churn analysis' },
+      { src: 'images/email_setup.png', alt: 'Email setup and customization' },
+      { src: 'images/recent_performance.png', alt: 'Performance metrics' },
+      { src: 'images/mobile_analysis.png', alt: 'Mobile analysis view' },
+      { src: 'images/mobile_email_steup.png', alt: 'Mobile email setup' },
+      { src: 'images/mobile_performance.png', alt: 'Mobile performance view' }
+    ];
+
+    let currentIndex = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCurrent = document.getElementById('lightbox-current');
+    const lightboxTotal = document.getElementById('lightbox-total');
+
+    lightboxTotal.textContent = images.length;
+
+    // Open lightbox
+    document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        currentIndex = index;
+        showImage();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Close lightbox
+    document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Navigation
+    document.querySelector('.lightbox-prev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage();
+    });
+
+    document.querySelector('.lightbox-next').addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage();
+      }
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage();
+      }
+    });
+
+    function showImage() {
+      lightboxImg.src = images[currentIndex].src;
+      lightboxImg.alt = images[currentIndex].alt;
+      lightboxCurrent.textContent = currentIndex + 1;
+    }
+  </script>
 </body>
 </html>
